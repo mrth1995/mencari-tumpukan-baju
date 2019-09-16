@@ -1,25 +1,27 @@
 package com.gits.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Test2 {
 	public static void main(String[] args) {
-		int[] input = {1,2,3,4};
+		int[] input = {1,2,3,4,5,6,7};
 		int uang = 7;
-		int purchased = test2(input, uang);
+		List<Integer> purchased = test2(input, uang);
 		System.out.println(purchased);
 	}
 
-	private static int test2(int[] array, int uang) {
+	private static List<Integer> test2(int[] array, int uang) {
 		int spent = 0;
-		int purchased = 0;
+		List<Integer> purchasedItem = new ArrayList<>();
 		Arrays.sort(array);
 		for (int i : array) {
 			spent += i;
 			if (spent < uang) {
-				purchased++;
+				purchasedItem.add(i);
 			}
 		}
-		return purchased;
+		return purchasedItem;
 	}
 }
